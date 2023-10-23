@@ -13,10 +13,26 @@ class _HistoryPageState extends State<HistoryPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("History"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.delete_sweep_outlined),
+          ),
+        ],
         backgroundColor: Colors.grey[900],
       ),
       body: const Center(
-        child: Text("History"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("History"),
+            Text("Temporary"),
+          ],
+        ),
       ),
     );
   }

@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selected_page = 0;
+  int _selectedPage = 0;
   final List<Widget> _pages = <Widget>[
     const LibraryPage(),
     const UpdatesPage(),
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             backgroundColor: Colors.grey[900],
             icon: const Icon(
-              Icons.library_books_outlined,
+              Icons.collections_bookmark_outlined,
               color: Colors.white,
             ),
             label: "Library",
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             backgroundColor: Colors.grey[900],
             icon: const Icon(
-              Icons.browse_gallery_outlined,
+              Icons.explore_outlined,
               color: Colors.white,
             ),
             label: "Browse",
@@ -94,11 +94,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         onTap: (index) {
           setState(() {
-            _selected_page = index;
+            _selectedPage = index;
           });
         },
       ),
-      body: _pages.elementAt(_selected_page),
+      body: _pages.elementAt(_selectedPage),
     );
   }
 }

@@ -64,8 +64,8 @@ class _BrowsePageState extends State<BrowsePage> with TickerProviderStateMixin {
           indicatorColor: Colors.blueAccent[100],
           labelColor: Colors.blueAccent[100],
           controller: _tabController,
-          indicatorPadding: const EdgeInsets.only(left: 50.0, right: 50.0),
-          indicatorWeight: 4.0,
+          indicatorPadding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          // indicatorWeight: 4.0,
           onTap: (index) {
             setState(() {
               currentindex = _tabController.index;

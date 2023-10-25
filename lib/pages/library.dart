@@ -65,7 +65,11 @@ class LlibraryPageState extends State<LibraryPage> {
                               ],
                             ),
                             ListView(
-                              children: const [],
+                              children: [
+                                SortTab(
+                                  onChanged: (val) {},
+                                ),
+                              ],
                             ),
                             ListView(
                               children: [
@@ -312,14 +316,111 @@ class MyRadioButtonList extends StatefulWidget {
 }
 
 class _MyRadioButtonListState extends State<MyRadioButtonList> {
+  late bool first, second, third, fourth;
+  late int mainval;
   @override
   void initState() {
     super.initState();
+    mainval = widget.value ?? 0;
+    switch (mainval) {
+      case 0:
+        first = true;
+        second = false;
+        third = false;
+        fourth = false;
+      case 1:
+        first = false;
+        second = true;
+        third = false;
+        fourth = false;
+      case 2:
+        first = false;
+        second = false;
+        third = true;
+        fourth = false;
+      case 3:
+        first = false;
+        second = false;
+        third = false;
+        fourth = true;
+      default:
+        first = true;
+        second = false;
+        third = false;
+        fourth = false;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        ListTile(
+          leading: first ? activeIcon() : inactiveIcon(),
+          title: const Text("Compact grid"),
+          onTap: () {
+            setState(() {
+              first = true;
+              second = false;
+              third = false;
+              fourth = false;
+              if (mainval != 0) {
+                mainval = 0;
+                widget.onChanged.call(mainval);
+              }
+            });
+          },
+        ),
+        ListTile(
+          leading: second ? activeIcon() : inactiveIcon(),
+          title: const Text("Comfortable grid"),
+          onTap: () {
+            setState(() {
+              first = false;
+              second = true;
+              third = false;
+              fourth = false;
+              if (mainval != 1) {
+                mainval = 1;
+                widget.onChanged.call(mainval);
+              }
+            });
+          },
+        ),
+        ListTile(
+          leading: third ? activeIcon() : inactiveIcon(),
+          title: const Text("Cover-only grid"),
+          onTap: () {
+            setState(() {
+              first = false;
+              second = false;
+              third = true;
+              fourth = false;
+              if (mainval != 2) {
+                mainval = 2;
+                widget.onChanged.call(mainval);
+              }
+            });
+          },
+        ),
+        ListTile(
+          leading: fourth ? activeIcon() : inactiveIcon(),
+          title: const Text("List"),
+          onTap: () {
+            setState(() {
+              first = false;
+              second = false;
+              third = false;
+              fourth = true;
+              if (mainval != 3) {
+                mainval = 3;
+                widget.onChanged.call(mainval);
+              }
+            });
+          },
+        ),
+      ],
+    );
   }
 
   Widget inactiveIcon() {
@@ -327,6 +428,410 @@ class _MyRadioButtonListState extends State<MyRadioButtonList> {
   }
 
   Widget activeIcon() {
-    return widget.activeIcon ?? const Icon(Icons.radio_button_on);
+    return widget.activeIcon ??
+        Icon(
+          Icons.radio_button_on,
+          color: Colors.blueAccent[100],
+        );
+  }
+}
+
+class SortTab extends StatefulWidget {
+  final int? value;
+  final Function(Map<int, int>) onChanged;
+  const SortTab({required this.onChanged, this.value, super.key});
+
+  @override
+  State<SortTab> createState() => _SortTabState();
+}
+
+class _SortTabState extends State<SortTab> {
+  late bool first, second, third, fourth, fifth, sixth, seventh, eigth;
+  late int mainval;
+  bool firstval = false,
+      secondval = false,
+      thirdval = false,
+      fourthval = false,
+      fifthval = false,
+      sixthval = false,
+      seventhval = false,
+      eigthval = false;
+  @override
+  void initState() {
+    super.initState();
+    mainval = widget.value ?? 0;
+    switch (mainval) {
+      case 0:
+        first = true;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = false;
+        seventh = false;
+        eigth = false;
+      case 1:
+        first = false;
+        second = true;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = false;
+        seventh = false;
+        eigth = false;
+      case 2:
+        first = false;
+        second = false;
+        third = true;
+        fourth = false;
+        fifth = false;
+        sixth = false;
+        seventh = false;
+        eigth = false;
+      case 3:
+        first = false;
+        second = false;
+        third = false;
+        fourth = true;
+        fifth = false;
+        sixth = false;
+        seventh = false;
+        eigth = false;
+      case 4:
+        first = false;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = true;
+        sixth = false;
+        seventh = false;
+        eigth = false;
+      case 5:
+        first = false;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = true;
+        seventh = false;
+        eigth = false;
+      case 6:
+        first = false;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = false;
+        seventh = true;
+        eigth = false;
+      case 7:
+        first = false;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = false;
+        seventh = false;
+        eigth = true;
+      default:
+        first = true;
+        second = false;
+        third = false;
+        fourth = false;
+        fifth = false;
+        sixth = false;
+        seventh = false;
+        eigth = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          leading: first ? activeIcon(firstval) : inactiveIcon(),
+          title: const Text("Alphabetically"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 0) {
+                  first = true;
+                  second = false;
+                  third = false;
+                  fourth = false;
+                  fifth = false;
+                  sixth = false;
+                  seventh = false;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 0;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  firstval = !firstval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: second ? activeIcon(secondval) : inactiveIcon(),
+          title: const Text("Last read"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 1) {
+                  first = false;
+                  second = true;
+                  third = false;
+                  fourth = false;
+                  fifth = false;
+                  sixth = false;
+                  seventh = false;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 1;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  secondval = !secondval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: third ? activeIcon(thirdval) : inactiveIcon(),
+          title: const Text("Last update check"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 2) {
+                  first = false;
+                  second = false;
+                  third = true;
+                  fourth = false;
+                  fifth = false;
+                  sixth = false;
+                  seventh = false;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 2;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  thirdval = !thirdval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: fourth ? activeIcon(fourthval) : inactiveIcon(),
+          title: const Text("Unread count"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 3) {
+                  first = false;
+                  second = false;
+                  third = false;
+                  fourth = true;
+                  fifth = false;
+                  sixth = false;
+                  seventh = false;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 3;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  fourthval = !fourthval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: fifth ? activeIcon(fifthval) : inactiveIcon(),
+          title: const Text("Total chapters"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 4) {
+                  first = false;
+                  second = false;
+                  third = false;
+                  fourth = false;
+                  fifth = true;
+                  sixth = false;
+                  seventh = false;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 4;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  fifthval = !fifthval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: sixth ? activeIcon(sixthval) : inactiveIcon(),
+          title: const Text("Latest chapter"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 5) {
+                  first = false;
+                  second = false;
+                  third = false;
+                  fourth = false;
+                  fifth = false;
+                  sixth = true;
+                  seventh = false;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 5;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  sixthval = !sixthval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: seventh ? activeIcon(seventhval) : inactiveIcon(),
+          title: const Text("Chapter fetch date"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 6) {
+                  first = false;
+                  second = false;
+                  third = false;
+                  fourth = false;
+                  fifth = false;
+                  sixth = false;
+                  seventh = true;
+                  eigth = false;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 6;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  seventhval = !seventhval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+        ListTile(
+          leading: eigth ? activeIcon(eigthval) : inactiveIcon(),
+          title: const Text("Date added"),
+          onTap: () {
+            setState(
+              () {
+                if (mainval != 7) {
+                  first = false;
+                  second = false;
+                  third = false;
+                  fourth = false;
+                  fifth = false;
+                  sixth = false;
+                  seventh = false;
+                  eigth = true;
+                  firstval = false;
+                  secondval = false;
+                  thirdval = false;
+                  fourthval = false;
+                  fifthval = false;
+                  sixthval = false;
+                  seventhval = false;
+                  eigthval = false;
+                  mainval = 7;
+                  widget.onChanged.call({mainval: 0});
+                } else {
+                  eigthval = !eigthval;
+                  widget.onChanged.call({mainval: 1});
+                }
+              },
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget activeIcon(bool val) {
+    if (!val) {
+      return Icon(
+        Icons.arrow_upward,
+        color: Colors.blueAccent[100],
+      );
+    } else {
+      return Icon(
+        Icons.arrow_downward,
+        color: Colors.blueAccent[100],
+      );
+    }
+  }
+
+  Widget inactiveIcon() {
+    return const Icon(Icons.clear, color: Colors.transparent);
   }
 }

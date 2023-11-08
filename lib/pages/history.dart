@@ -19,11 +19,43 @@ class _HistoryPageState extends State<HistoryPage> {
             icon: const Icon(Icons.search),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    backgroundColor: const Color(0XFF2A2D36),
+                    title: const Text("Remove Everything"),
+                    content:
+                        const Text("Are you sure? All history will be lost."),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(color: Colors.blueAccent[100]),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          "Ok",
+                          style: TextStyle(color: Colors.blueAccent[100]),
+                        ),
+                      )
+                    ],
+                  );
+                },
+              );
+            },
             icon: const Icon(Icons.delete_sweep_outlined),
           ),
         ],
-        backgroundColor: Colors.grey[900],
+        backgroundColor: const Color(0xFF25282d),
       ),
       body: const Center(
         child: Column(
@@ -34,6 +66,7 @@ class _HistoryPageState extends State<HistoryPage> {
           ],
         ),
       ),
+      backgroundColor: const Color(0xFF1B1A1F),
     );
   }
 }

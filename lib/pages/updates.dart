@@ -19,7 +19,7 @@ class _UpdatesPageState extends State<UpdatesPage> {
             icon: const Icon(Icons.refresh),
           )
         ],
-        backgroundColor: Colors.grey[900],
+        backgroundColor: const Color(0xFF25282d),
       ),
       body: const Center(
         child: Column(
@@ -30,6 +30,7 @@ class _UpdatesPageState extends State<UpdatesPage> {
           ],
         ),
       ),
+      backgroundColor: const Color(0xFF1B1A1F),
     );
   }
 }

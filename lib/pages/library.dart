@@ -22,130 +22,141 @@ class LlibraryPageState extends State<LibraryPage> {
             icon: const Icon(Icons.filter_list),
             onPressed: () {
               showModalBottomSheet(
+                backgroundColor: const Color(0XFF202328),
                 context: context,
                 builder: (BuildContext context) {
                   return DefaultTabController(
                     length: 3,
-                    child: Column(
-                      children: [
-                        TabBar(
-                          labelColor: Colors.blueAccent[100],
-                          indicatorColor: Colors.blueAccent[100],
-                          dividerColor: Colors.blueAccent[100],
-                          tabs: const <Widget>[
-                            Tab(text: "Filter"),
-                            Tab(text: "Sort"),
-                            Tab(text: "Display"),
-                          ],
-                        ),
-                        Expanded(
-                          child: TabBarView(children: <Widget>[
-                            ListView(
-                              children: [
-                                MultiRadioButton(
-                                  title: const Text("Downloaded"),
-                                  onChanged: (value) {},
-                                ),
-                                MultiRadioButton(
-                                  title: const Text("Unread"),
-                                  onChanged: (value) {},
-                                ),
-                                MultiRadioButton(
-                                  title: const Text("Started"),
-                                  onChanged: (value) {},
-                                ),
-                                MultiRadioButton(
-                                  title: const Text("Bookmarked"),
-                                  onChanged: (value) {},
-                                ),
-                                MultiRadioButton(
-                                  title: const Text("Completed"),
-                                  onChanged: (value) {},
-                                ),
-                              ],
-                            ),
-                            ListView(
-                              children: [
-                                SortTab(
-                                  onChanged: (val) {},
-                                ),
-                              ],
-                            ),
-                            ListView(
-                              children: [
-                                const ListTile(title: Text("Display mode")),
-                                MyRadioButtonList(
-                                  onChanged: (value) {},
-                                ),
-                                const ListTile(title: Text("Badges")),
-                                MyRadioButton(
-                                  title: const Text("Downloaded chapters"),
-                                  inactiveIcon: const Icon(
-                                      Icons.check_box_outline_blank_rounded),
-                                  activeIcon: Icon(
-                                    Icons.check_box_rounded,
-                                    color: Colors.blueAccent[100],
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0)),
+                        color: Color(0XFF202328),
+                      ),
+                      child: Column(
+                        children: [
+                          TabBar(
+                            labelColor: Colors.blueAccent[100],
+                            unselectedLabelColor: Colors.white,
+                            indicatorColor: Colors.blueAccent[100],
+                            dividerColor: Colors.grey,
+                            indicatorSize: TabBarIndicatorSize.label,
+                            tabs: const <Widget>[
+                              Tab(text: "Filter"),
+                              Tab(text: "Sort"),
+                              Tab(text: "Display"),
+                            ],
+                          ),
+                          Expanded(
+                            child: TabBarView(children: <Widget>[
+                              ListView(
+                                children: [
+                                  MultiRadioButton(
+                                    title: const Text("Downloaded"),
+                                    onChanged: (value) {},
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                                MyRadioButton(
-                                  title: const Text("Local source"),
-                                  inactiveIcon: const Icon(
-                                      Icons.check_box_outline_blank_rounded),
-                                  activeIcon: Icon(
-                                    Icons.check_box_rounded,
-                                    color: Colors.blueAccent[100],
+                                  MultiRadioButton(
+                                    title: const Text("Unread"),
+                                    onChanged: (value) {},
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                                MyRadioButton(
-                                  title: const Text("Language"),
-                                  inactiveIcon: const Icon(
-                                      Icons.check_box_outline_blank_rounded),
-                                  activeIcon: Icon(
-                                    Icons.check_box_rounded,
-                                    color: Colors.blueAccent[100],
+                                  MultiRadioButton(
+                                    title: const Text("Started"),
+                                    onChanged: (value) {},
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                                const ListTile(title: Text("Tabs")),
-                                MyRadioButton(
-                                  title: const Text("Show category tabs"),
-                                  inactiveIcon: const Icon(
-                                      Icons.check_box_outline_blank_rounded),
-                                  activeIcon: Icon(
-                                    Icons.check_box_rounded,
-                                    color: Colors.blueAccent[100],
+                                  MultiRadioButton(
+                                    title: const Text("Bookmarked"),
+                                    onChanged: (value) {},
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                                MyRadioButton(
-                                  title: const Text("Show number of items"),
-                                  inactiveIcon: const Icon(
-                                      Icons.check_box_outline_blank_rounded),
-                                  activeIcon: Icon(
-                                    Icons.check_box_rounded,
-                                    color: Colors.blueAccent[100],
+                                  MultiRadioButton(
+                                    title: const Text("Completed"),
+                                    onChanged: (value) {},
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                                const ListTile(title: Text("Other")),
-                                MyRadioButton(
-                                  title: const Text(
-                                      "Show continue reading button"),
-                                  inactiveIcon: const Icon(
-                                      Icons.check_box_outline_blank_rounded),
-                                  activeIcon: Icon(
-                                    Icons.check_box_rounded,
-                                    color: Colors.blueAccent[100],
+                                ],
+                              ),
+                              ListView(
+                                children: [
+                                  SortTab(
+                                    onChanged: (val) {},
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                              ],
-                            ),
-                          ]),
-                        )
-                      ],
+                                ],
+                              ),
+                              ListView(
+                                children: [
+                                  const ListTile(title: Text("Display mode")),
+                                  MyRadioButtonList(
+                                    onChanged: (value) {},
+                                  ),
+                                  const ListTile(title: Text("Badges")),
+                                  MyRadioButton(
+                                    title: const Text("Downloaded chapters"),
+                                    inactiveIcon: const Icon(
+                                        Icons.check_box_outline_blank_rounded),
+                                    activeIcon: Icon(
+                                      Icons.check_box_rounded,
+                                      color: Colors.blueAccent[100],
+                                    ),
+                                    onChanged: (value) {},
+                                  ),
+                                  MyRadioButton(
+                                    title: const Text("Local source"),
+                                    inactiveIcon: const Icon(
+                                        Icons.check_box_outline_blank_rounded),
+                                    activeIcon: Icon(
+                                      Icons.check_box_rounded,
+                                      color: Colors.blueAccent[100],
+                                    ),
+                                    onChanged: (value) {},
+                                  ),
+                                  MyRadioButton(
+                                    title: const Text("Language"),
+                                    inactiveIcon: const Icon(
+                                        Icons.check_box_outline_blank_rounded),
+                                    activeIcon: Icon(
+                                      Icons.check_box_rounded,
+                                      color: Colors.blueAccent[100],
+                                    ),
+                                    onChanged: (value) {},
+                                  ),
+                                  const ListTile(title: Text("Tabs")),
+                                  MyRadioButton(
+                                    title: const Text("Show category tabs"),
+                                    inactiveIcon: const Icon(
+                                        Icons.check_box_outline_blank_rounded),
+                                    activeIcon: Icon(
+                                      Icons.check_box_rounded,
+                                      color: Colors.blueAccent[100],
+                                    ),
+                                    onChanged: (value) {},
+                                  ),
+                                  MyRadioButton(
+                                    title: const Text("Show number of items"),
+                                    inactiveIcon: const Icon(
+                                        Icons.check_box_outline_blank_rounded),
+                                    activeIcon: Icon(
+                                      Icons.check_box_rounded,
+                                      color: Colors.blueAccent[100],
+                                    ),
+                                    onChanged: (value) {},
+                                  ),
+                                  const ListTile(title: Text("Other")),
+                                  MyRadioButton(
+                                    title: const Text(
+                                        "Show continue reading button"),
+                                    inactiveIcon: const Icon(
+                                        Icons.check_box_outline_blank_rounded),
+                                    activeIcon: Icon(
+                                      Icons.check_box_rounded,
+                                      color: Colors.blueAccent[100],
+                                    ),
+                                    onChanged: (value) {},
+                                  ),
+                                ],
+                              ),
+                            ]),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -153,7 +164,10 @@ class LlibraryPageState extends State<LibraryPage> {
             },
           ),
           PopupMenuButton(
-            position: PopupMenuPosition.under,
+            icon: const Icon(Icons.more_vert, color: Colors.white),
+            color: const Color(0XFF25282F),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0)),
             itemBuilder: (context) {
               return [
                 PopupMenuItem(
@@ -168,7 +182,7 @@ class LlibraryPageState extends State<LibraryPage> {
             },
           ),
         ],
-        backgroundColor: Colors.grey[900],
+        backgroundColor: const Color(0xFF25282d),
       ),
       body: const Center(
         child: Column(
@@ -179,6 +193,7 @@ class LlibraryPageState extends State<LibraryPage> {
           ],
         ),
       ),
+      backgroundColor: const Color(0xFF1B1A1F),
     );
   }
 }

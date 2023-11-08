@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'pages/library.dart';
 import 'pages/updates.dart';
 import 'pages/history.dart';
@@ -46,46 +47,46 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xFF25282d),
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.white,
         showUnselectedLabels: true,
-        currentIndex: 2,
         items: [
-          BottomNavigationBarItem(
-            backgroundColor: Colors.grey[900],
-            icon: const Icon(
+          const BottomNavigationBarItem(
+            backgroundColor: Color(0xFF25282d),
+            icon: Icon(
               Icons.collections_bookmark_outlined,
               color: Colors.white,
             ),
             label: "Library",
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.grey[900],
-            icon: const Icon(
-              Icons.update,
+            backgroundColor: const Color(0xFF25282d),
+            icon: Icon(
+              MdiIcons.alertDecagramOutline,
               color: Colors.white,
             ),
             label: "Updates",
           ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.grey[900],
-            icon: const Icon(
+          const BottomNavigationBarItem(
+            backgroundColor: Color(0xFF25282d),
+            icon: Icon(
               Icons.history,
               color: Colors.white,
             ),
             label: "History",
           ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.grey[900],
-            icon: const Icon(
+          const BottomNavigationBarItem(
+            backgroundColor: Color(0xFF25282d),
+            icon: Icon(
               Icons.explore_outlined,
               color: Colors.white,
             ),
             label: "Browse",
           ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.grey[900],
-            icon: const Icon(
+          const BottomNavigationBarItem(
+            backgroundColor: Color(0xFF25282d),
+            icon: Icon(
               Icons.more_horiz,
               color: Colors.white,
             ),

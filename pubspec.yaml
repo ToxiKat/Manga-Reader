@@ -15,6 +15,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   material_design_icons_flutter: ^7.0.7296
   url_launcher: ^6.1.14
+  file_picker: ^6.0.0
+  flutter_tts: ^3.8.3
+  epubx: ^4.0.0
+  image: ^3.0.8
 
 dev_dependencies:
   flutter_test:
@@ -27,7 +31,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/placeholder.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

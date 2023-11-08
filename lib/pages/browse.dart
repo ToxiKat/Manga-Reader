@@ -38,7 +38,7 @@ class _BrowsePageState extends State<BrowsePage> with TickerProviderStateMixin {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.abc),
+            icon: const Icon(Icons.translate),
           )
         ];
       case 2:
@@ -58,14 +58,15 @@ class _BrowsePageState extends State<BrowsePage> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Browse"),
-        backgroundColor: Colors.grey[900],
+        backgroundColor: const Color(0xFF25282d),
         bottom: TabBar(
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Colors.blueAccent[100],
           labelColor: Colors.blueAccent[100],
+          unselectedLabelColor: Colors.white,
           controller: _tabController,
-          indicatorPadding: const EdgeInsets.only(left: 8.0, right: 8.0),
-          // indicatorWeight: 4.0,
+          indicatorPadding:
+              const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
           onTap: (index) {
             setState(() {
               currentindex = _tabController.index;
@@ -111,6 +112,7 @@ class _BrowsePageState extends State<BrowsePage> with TickerProviderStateMixin {
           ),
         ],
       ),
+      backgroundColor: const Color(0xFF1B1A1F),
     );
   }
 }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../test/book.dart';
+import '../test/books.dart';
+
 class MorePage extends StatefulWidget {
   const MorePage({super.key});
 
@@ -23,7 +26,7 @@ class _MorePageState extends State<MorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
           const Divider(),
           ListTile(
@@ -140,8 +143,42 @@ class _MorePageState extends State<MorePage> {
             },
             iconColor: Colors.blueAccent[100],
           ),
+          const Divider(),
+          //---------------------------Testing start---------------------------//
+          const Divider(color: Colors.redAccent),
+          const ListTile(
+            leading: Column(),
+            title: Text("Testing"),
+            textColor: Colors.redAccent,
+          ),
+          ListTile(
+            leading: Icon(
+              MdiIcons.progressAlert,
+              color: Colors.redAccent,
+            ),
+            title: const Text("Book - static"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const BookPage()));
+            },
+            iconColor: Colors.blueAccent[100],
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.chrome_reader_mode_outlined,
+              color: Colors.redAccent,
+            ),
+            title: const Text("Books"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const BooksList()));
+            },
+          ),
+          const Divider(color: Colors.redAccent),
+          //---------------------------Testing end---------------------------//
         ],
       ),
+      backgroundColor: const Color(0xFF1B1A1F),
     );
   }
 }
@@ -250,6 +287,29 @@ class _BackupRestorePageState extends State<BackupRestorePage> {
       appBar: AppBar(
         title: const Text("Backup and Restore"),
       ),
+      body: ListView(children: [
+        ListTile(
+          title: const Text("Create backup"),
+          subtitle: const Text("Can be used to restore current library"),
+          onTap: () {},
+        ),
+        ListTile(
+          title: const Text("Restore backup"),
+          subtitle: const Text("Restore library from backup file"),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text(
+            "Automatic backups",
+            style: TextStyle(color: Colors.blueAccent[100]),
+          ),
+        ),
+        ListTile(
+          title: const Text("Backup frequency"),
+          subtitle: const Text(""),
+          onTap: () {},
+        ),
+      ]),
     );
   }
 }
